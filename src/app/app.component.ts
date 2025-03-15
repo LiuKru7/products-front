@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   shoes: Product[] = [];
   jackets: Product[] = [];
+  hats: Product[] = [];
 
   constructor(private productService: ProductServiceService) {
   }
@@ -22,5 +23,15 @@ export class AppComponent implements OnInit {
         this.jackets = data;
       }
     });
+    this.productService.getHats().subscribe({
+      next:(data : Product[]) =>{
+        this.hats = data;
+    }
+    });
+  }
+
+  deleteAllHats() {
+    this.productService.deleteAllHats().subscribe({})
+    this.hats = [];
   }
 }

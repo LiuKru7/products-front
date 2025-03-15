@@ -1,9 +1,41 @@
-<h1>Hello from root component!</h1>
-<h2>List of Shoes</h2>
-<ol>
-  <li *ngFor="let shoe of shoes">{{shoe.name}}. Price: {{shoe.price}}</li>
-</ol>
-<h2>List of jackets</h2>
-<ol>
-  <li *ngFor="let jacket of jackets">{{jacket.name}}. Price: {{jacket.price}}</li>
-</ol>
+<div class="container mt-4">
+  <h1 class="text-center text-primary">Hello from root component!</h1>
+
+  <div class="row">
+    <!-- Shoes List -->
+    <div class="col-md-4">
+      <h2 class="text-success">List of Shoes</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let shoe of shoes">
+          <strong>{{ shoe.name }}</strong> - ${{ shoe.price }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Jackets List -->
+    <div class="col-md-4">
+      <h2 class="text-danger">List of Jackets</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let jacket of jackets">
+          <strong>{{ jacket.name }}</strong> - ${{ jacket.price }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hats List -->
+    <div class="col-md-4">
+      <h2 class="text-info">List of Hats</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let hat of hats">
+          <strong>{{ hat.name }}</strong> - ${{ hat.price }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Delete Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-danger" (click)="deleteAllHats()">Delete all hats</button>
+  </div>
+</div>
+

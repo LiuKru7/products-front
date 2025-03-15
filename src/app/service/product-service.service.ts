@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 })
 export class ProductServiceService {
   private jacketApiUrl = 'http://localhost:8080/api/product/jacket';
+  private hatsApiUrl = 'http://localhost:8080/api/product/hats';
 
   constructor(private http: HttpClient) {
   }
@@ -38,4 +39,11 @@ export class ProductServiceService {
   public getJackets(): Observable<Product[]> {
     return this.http.get<Product[]>(this.jacketApiUrl)
   };
+
+  public getHats (): Observable<Product[]> {
+    return this.http.get<Product[]>(this.hatsApiUrl)
+  }
+  public deleteAllHats(): Observable<void> {
+    return this.http.delete<void>(this.hatsApiUrl)
+  }
 }
